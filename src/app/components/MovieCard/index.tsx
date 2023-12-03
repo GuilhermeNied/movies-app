@@ -3,24 +3,33 @@ import Link from "next/link"
 
 interface MovieCardProps {
   id: number
+  title: string
+  overview: string
+  imageUrl: string
 }
 
-export function MovieCard({ id }: MovieCardProps) {
-  const imgUrl = ''
+export function MovieCard({ id, title, overview, imageUrl }: MovieCardProps) {
+  const addingThreeDotsInTextEnd = (text: string, maxStringLenght: number) => {
+    const initialTextPosition = 0
+    return text.length >= maxStringLenght ? text.substring(initialTextPosition, maxStringLenght).trimEnd() + '...' : text
+  }
+  const imgUrl = `https://image.tmdb.org/t/p/original${imageUrl}`
+  const spreadOverview = addingThreeDotsInTextEnd(overview, 210)
+
   return (
-    <Link className="flex flex-col group" href={`/movie/${id}`}>
+    <Link className="flex flex-col group gap-1" href={`/movie/${id}`}>
       <Image
-        className="group-hover:brightness-90"
+        className="group-hover:brightness-75"
         src={imgUrl}
-        alt=""
+        alt={title}
         height={750}
-        width={200}
+        width={300}
       />
       <span className="font-semibold text-zinc-100 text-lg">
-        Movie
+        {title}
       </span>
-      <span className="font-medium text-sm text-zinc-00">
-        Description
+      <span className="font-medium text-sm text-zinc-200 break-words">
+        {spreadOverview}
       </span>
     </Link>
   )
