@@ -19,7 +19,7 @@ export function MovieCard({ id, title, overview, imageUrl }: MovieCardProps) {
   return (
     <Link className="flex flex-col group gap-1" href={`/movie/${id}`}>
       <Image
-        className="group-hover:brightness-75"
+        className="group-hover:brightness-75 delay-100 duration-100"
         src={imgUrl}
         alt={title}
         height={750}
@@ -28,7 +28,7 @@ export function MovieCard({ id, title, overview, imageUrl }: MovieCardProps) {
       <span className="font-semibold text-zinc-100 text-lg">
         {title}
       </span>
-      <span className="font-medium text-sm text-zinc-200 break-words">
+      <span className="font-medium text-sm text-zinc-300 break-words">
         {spreadOverview}
       </span>
     </Link>

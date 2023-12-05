@@ -42,12 +42,12 @@ async function getMovie(id: number) {
 
 export default async function Page({ params }: { params: { id: number } }) {
   const movie = await getMovie(params.id);
-
   return (
-    <div className="flex justify-center pt-10">
-      <iframe className="w-7/12 h-[41rem]" src={`https://www.youtube.com/embed/${movie.movieTrailer.key}`}></iframe>
-      <section>
-
+    <div className="flex flex-col gap-5 ustify-center pt-10 px-96 max-2xl:px-32 max-xl:px-16 max-lg:px-40 max-md:px-5  ">
+      <iframe allowFullScreen className="w-full h-[650px] max-lg:h-[350px] max-md:h-[250px]" src={`https://www.youtube.com/embed/${movie.movieTrailer.key}`}></iframe>
+      <section className="flex flex-col gap-2">
+        <h3 className="font-semibold text-4xl">{movie.movieDetails.title}</h3>
+        <span className="text-zinc-300">{movie.movieDetails.overview}</span>
       </section>
     </div>
   )
