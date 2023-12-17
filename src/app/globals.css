@@ -8,3 +8,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+@layer components {
+  .selected-category-item {
+    @apply pb-1 border-b-[3px] border-b-violet-700 
+  }
+  
+}
+
