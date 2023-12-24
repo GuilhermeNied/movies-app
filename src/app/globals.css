@@ -11,7 +11,7 @@
 
 @layer components {
   .selected-category-item {
-    @apply pb-1 border-b-[3px] border-b-violet-700 
+    @apply pb-1 border-b-[3px] border-b-purple-700 
   }
   
 }
