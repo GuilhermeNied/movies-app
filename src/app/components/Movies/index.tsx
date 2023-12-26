@@ -8,7 +8,7 @@ interface MoviesProps {
 
 export function Movies({ movies }: MoviesProps) {
   return (
-    <main className="grid p-10 grid-cols-5 gap-10 justify-items-center max-xl:grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-1">
+    <main className="grid p-10 grid-cols-5 gap-10 justify-items-center max-xl:grid-cols-4 max-sm:grid-cols-1 ">
       {
         movies.map((movie) => (
           <MovieCard

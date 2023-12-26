@@ -1,9 +1,11 @@
-import { MovieCategoryNav } from "../MovieCategoryNav";
+import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="flex justify-center items-center p-5 w-full ">
-      <MovieCategoryNav />
+    <header className="w-full p-5">
+      <Link href='/'>
+        <span className="text-2xl">{'<'}</span>
+      </Link>
     </header>
   )
 }

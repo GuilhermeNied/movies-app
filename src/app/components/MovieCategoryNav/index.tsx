@@ -9,7 +9,7 @@ export function MovieCategoryNav() {
     return pathname === itemPathname
   }
   return (
-    <nav className="flex gap-5">
+    <nav className="flex gap-5 fixed z-10 justify-center items-center p-5 w-full bg-zinc-800  max-sm:bottom-0 max-sm:px-2.5 max-sm:pb-5 max-sm:gap-2.5">
       <Link data-is-active={isSamePath('/')} className="data-[is-active=true]:selected-category-item" href='/'>
         Popular
       </Link>
@@ -25,7 +25,6 @@ export function MovieCategoryNav() {
       <Link data-is-active={isSamePath('/upcoming')} className="data-[is-active=true]:selected-category-item" href='/upcoming'>
         Upcoming
       </Link>
-
     </nav>
   )
 }
