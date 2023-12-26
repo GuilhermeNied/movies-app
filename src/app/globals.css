@@ -2,17 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  width: 7px;
+}
+
+body::-webkit-scrollbar-track {
+  @apply bg-zinc-700
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply bg-purple-700 rounded-2xl
+}
+
 @layer components {
   .selected-category-item {
-    @apply pb-1 border-b-[3px] border-b-purple-700 
+    @apply border-b-[3px] text-sm border-b-purple-700 text-center break-words leading-6
   }
-  
 }
 

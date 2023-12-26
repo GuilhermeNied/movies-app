@@ -2,7 +2,7 @@ import { Movie } from "../@types/Movie"
 
 export async function fetchMovies(page: number = 1, category: string): Promise<Movie> {
   try {
-    const data = await fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${page}`, {
+    const data = await fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&api_key=${process.env.NEXT_PUBLIC_KEY}&page=${page}`, {
       headers: {
         'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`
       }
@@ -11,7 +11,7 @@ export async function fetchMovies(page: number = 1, category: string): Promise<M
   } catch (error) {
     console.log(error);
     return {
-      page: 0, 
+      page: 0,
       results: []
     }
   }
