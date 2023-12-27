@@ -53,8 +53,8 @@ export default async function Page({ params }: { params: { id: number } }) {
   }
 
   return (
-    <div className="flex w-full flex-col gap-5 items-center justify-center py-2 px-48 max-2xl:px-32 max-xl:px-16 max-lg:px-40 max-md:px-5">
-      <iframe allowFullScreen className="w-full h-[650px] max-lg:h-[300px] max-md:h-[250px]" src={`https://www.youtube.com/embed/${movie.movieTrailer.key}`}></iframe>
+    <div className="flex w-full flex-col gap-5 items-center justify-center py-2 px-96 max-2xl:px-32 max-xl:px-16 max-lg:px-40 max-md:px-5">
+      <iframe allowFullScreen className="w-full h-[650px] max-lg:h-[400px] max-md:h-[250px]" src={`https://www.youtube.com/embed/${movie.movieTrailer.key}`}></iframe>
       <section className="flex flex-col gap-2">
         <h3 className="font-semibold text-4xl">{movie.movieDetails.title}</h3>
         <div className="flex flex-row gap-1 text-md text-zinc-200 max-sm:flex-col">
