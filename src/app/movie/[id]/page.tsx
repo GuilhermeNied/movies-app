@@ -53,13 +53,14 @@ export default async function Page({ params }: { params: { id: number } }) {
   const addingCommaInTexts = (text: string, index: number) => {
     return (index ? ', ' : '') + text
   }
-  const cast = movie.credits.cast.filter((actor: any) => actor.profile_path !== null)
-  console.log(cast);
+  const cast = movie.credits.cast
 
+  const generateImgUrl = (actorProfilePath: string) => {
+    return `https://image.tmdb.org/t/p/original${actorProfilePath}`
+  }
 
   return (
     <div className="flex w-full flex-col gap-5 items-center justify-center py-2 px-96 max-2xl:px-32 max-xl:px-16 max-lg:px-40 max-md:px-5">
-
       <iframe allowFullScreen className="w-full h-[650px] max-lg:h-[400px] max-md:h-[250px]" src={`https://www.youtube.com/embed/${movie.trailer.key}`}></iframe>
       <section className="flex flex-col gap-2">
         <h3 className="font-semibold text-4xl">{movie.details.title}</h3>
@@ -78,19 +79,25 @@ export default async function Page({ params }: { params: { id: number } }) {
           </div>
         </div>
         <p className="text-zinc-300 text-justify">{movie.details.overview}</p>
-        <div>
-          <h3>Cast</h3>
-          <section>
-            {
-              cast.map((actor: any, index: number) => (
-                <div key={index}>
-                  <Image width={50} height={50} src={`https://image.tmdb.org/t/p/original${actor.profile_path}`} alt={actor.name} />
-                </div>
-              ))
-            }
-          </section>
-        </div>
       </section>
+      <div className="flex flex-col gap-2 w-full">
+        <h3>Cast</h3>
+        <section className="flex flex-row gap-5 mb-3 pb-2 overflow-x-auto">
+          {
+            cast.map((actor: any, index: number) => (
+              <div className="flex flex-col gap-2 w-full " key={index}>
+                {
+                  actor.profile_path === null
+                    ? <div className="max-w-sm max-h-36 bg-zinc-700 px-[3.3rem] py-20 rounded-xl" />
+                    : <img className="max-w-md max-h-40 rounded-xl" src={generateImgUrl(actor.profile_path)} alt={actor.name} />
+                }
+                <span>{actor.name}</span>
+              </div>
+
+            ))
+          }
+        </section>
+      </div>
     </div>
   )
 }

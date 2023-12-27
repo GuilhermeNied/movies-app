@@ -10,6 +10,8 @@ export default function Loading() {
         </div>
         <p className="w-full p-20 bg-zinc-700"></p>
       </section>
+      <div className="bg-zinc-700 w-full p-16">
+      </div>
     </div>
   )
 }
